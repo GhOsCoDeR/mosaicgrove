@@ -1,0 +1,33 @@
+{
+  "name": "mosaic-grove-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive website for Mosaic Grove",
+  "main": "index.html",
+  "scripts": {
+    "generate-images": "node convert-images.js",
+    "start": "npx serve"
+  },
+  "keywords": [
+    "website",
+    "responsive",
+    "organic",
+    "superfood",
+    "cashews",
+    "tiger nuts"
+  ],
+  "author": "Mosaic Grove",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "puppeteer": "^21.5.0",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+} 

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosaic Grove Community Impact</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+        }
+        .community-container {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #c5e1a5, #8bc34a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .scene {
+            width: 90%;
+            max-width: 800px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .sky {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to bottom, #64b5f6, #bbdefb);
+        }
+        .sun {
+            position: absolute;
+            top: 40px;
+            right: 80px;
+            width: 60px;
+            height: 60px;
+            background: #ffeb3b;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255, 235, 59, 0.8);
+        }
+        .ground {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #8d6e63;
+        }
+        .field {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: #7cb342;
+            background-image: linear-gradient(to right, rgba(124, 179, 66, 0.6), rgba(124, 179, 66, 0.8)), 
+                              repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.1) 10px, rgba(255, 255, 255, 0.1) 20px);
+        }
+        .plant {
+            position: absolute;
+            bottom: 0;
+            width: 30px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .plant-stem {
+            width: 5px;
+            height: 70%;
+            background: #33691e;
+        }
+        .plant-leaf {
+            position: absolute;
+            width: 20px;
+            height: 15px;
+            background: #558b2f;
+            border-radius: 50% 50% 0 50%;
+            transform-origin: bottom left;
+        }
+        .plant-leaf.left {
+            transform: rotate(-45deg);
+            left: 0;
+        }
+        .plant-leaf.right {
+            transform: rotate(45deg) scaleX(-1);
+            right: 0;
+        }
+        .plant1 {
+            left: 20%;
+            height: 80px;
+        }
+        .plant2 {
+            left: 30%;
+            height: 120px;
+        }
+        .plant3 {
+            left: 50%;
+            height: 90px;
+        }
+        .plant4 {
+            left: 70%;
+            height: 110px;
+        }
+        .plant5 {
+            left: 85%;
+            height: 100px;
+        }
+        .people {
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .person {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .person-head {
+            width: 20px;
+            height: 20px;
+            background: #795548;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        .person-body {
+            width: 30px;
+            height: 40px;
+            background: #3e2723;
+            border-radius: 10px 10px 0 0;
+            margin-top: -5px;
+        }
+        .person-arms {
+            position: absolute;
+            top: 25px;
+            width: 60px;
+            height: 5px;
+            background: #3e2723;
+            z-index: 1;
+        }
+        .person-legs {
+            display: flex;
+            justify-content: space-between;
+            width: 30px;
+        }
+        .person-leg {
+            width: 10px;
+            height: 25px;
+            background: #5d4037;
+        }
+        .farmer1 {
+            left: 40%;
+            bottom: 30px;
+            transform: scale(1.2);
+        }
+        .farmer2 {
+            left: 60%;
+            bottom: 25px;
+            transform: scale(1.1);
+        }
+        .heading {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        .subheading {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            font-style: italic;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="community-container">
+        <div class="scene">
+            <div class="heading">Community Impact</div>
+            <div class="subheading">Supporting sustainable farming practices</div>
+            
+            <div class="sky">
+                <div class="sun"></div>
+            </div>
+            
+            <div class="ground"></div>
+            <div class="field"></div>
+            
+            <div class="plant plant1">
+                <div class="plant-stem"></div>
+                <div class="plant-leaf left" style="top: 30%;"></div>
+                <div class="plant-leaf right" style="top: 30%;"></div>
+                <div class="plant-leaf left" style="top: 50%;"></div>
+                <div class="plant-leaf right" style="top: 50%;"></div>
+            </div>
+            
+            <div class="plant plant2">
+                <div class="plant-stem"></div>
+                <div class="plant-leaf left" style="top: 40%;"></div>
+                <div class="plant-leaf right" style="top: 40%;"></div>
+                <div class="plant-leaf left" style="top: 60%;"></div>
+                <div class="plant-leaf right" style="top: 60%;"></div>
+            </div>
+            
+            <div class="plant plant3">
+                <div class="plant-stem"></div>
+                <div class="plant-leaf left" style="top: 35%;"></div>
+                <div class="plant-leaf right" style="top: 35%;"></div>
+                <div class="plant-leaf left" style="top: 55%;"></div>
+                <div class="plant-leaf right" style="top: 55%;"></div>
+            </div>
+            
+            <div class="plant plant4">
+                <div class="plant-stem"></div>
+                <div class="plant-leaf left" style="top: 45%;"></div>
+                <div class="plant-leaf right" style="top: 45%;"></div>
+                <div class="plant-leaf left" style="top: 65%;"></div>
+                <div class="plant-leaf right" style="top: 65%;"></div>
+            </div>
+            
+            <div class="plant plant5">
+                <div class="plant-stem"></div>
+                <div class="plant-leaf left" style="top: 40%;"></div>
+                <div class="plant-leaf right" style="top: 40%;"></div>
+                <div class="plant-leaf left" style="top: 60%;"></div>
+                <div class="plant-leaf right" style="top: 60%;"></div>
+            </div>
+            
+            <div class="people">
+                <div class="person farmer1">
+                    <div class="person-head"></div>
+                    <div class="person-body"></div>
+                    <div class="person-arms"></div>
+                    <div class="person-legs">
+                        <div class="person-leg"></div>
+                        <div class="person-leg"></div>
+                    </div>
+                </div>
+                
+                <div class="person farmer2">
+                    <div class="person-head"></div>
+                    <div class="person-body"></div>
+                    <div class="person-arms"></div>
+                    <div class="person-legs">
+                        <div class="person-leg"></div>
+                        <div class="person-leg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

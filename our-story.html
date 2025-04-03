@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Story | Mosaic Grove</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      /* Page-specific styles */
+      .page-header {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("images/founders.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 120px 0 80px;
+        margin-bottom: 60px;
+      }
+
+      .page-header h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .page-header p {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .story-section {
+        padding: 80px 0;
+      }
+
+      .story-section h2 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 0;
+      }
+
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: var(--primary-light);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px 30px;
+        position: relative;
+        width: 50%;
+        margin-bottom: 60px;
+      }
+
+      .timeline-item:nth-child(even) {
+        margin-left: auto;
+        justify-content: flex-start;
+      }
+
+      .timeline-content {
+        background-color: white;
+        padding: 30px;
+        border-radius: 6px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        width: 90%;
+        position: relative;
+      }
+
+      .timeline-content::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border: 4px solid var(--primary-color);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content::after {
+        right: -40px;
+      }
+
+      .timeline-item:nth-child(even) .timeline-content::after {
+        left: -40px;
+      }
+
+      .timeline-year {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      .timeline-item h3 {
+        margin-bottom: 15px;
+        font-size: 1.6rem;
+      }
+
+      .team-section {
+        background-color: var(--light-gray);
+        padding: 80px 0;
+      }
+
+      .team-section h2 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .team-member {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .team-member:hover {
+        transform: translateY(-10px);
+      }
+
+      .team-photo {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .team-info {
+        padding: 20px;
+      }
+
+      .team-name {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .team-role {
+        color: var(--primary-color);
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .team-bio {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .team-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .team-social a {
+        color: var(--text-light);
+        font-size: 1.2rem;
+      }
+
+      .team-social a:hover {
+        color: var(--primary-color);
+      }
+
+      .vision-section {
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .vision-section h2 {
+        margin-bottom: 30px;
+      }
+
+      .vision-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .vision-quote {
+        font-size: 1.5rem;
+        font-style: italic;
+        color: var(--primary-dark);
+        margin: 40px 0;
+        line-height: 1.8;
+        position: relative;
+        padding: 0 40px;
+      }
+
+      .vision-quote::before,
+      .vision-quote::after {
+        content: '"';
+        font-size: 4rem;
+        position: absolute;
+        color: var(--primary-light);
+        opacity: 0.4;
+      }
+
+      .vision-quote::before {
+        top: -20px;
+        left: 0;
+      }
+
+      .vision-quote::after {
+        bottom: -60px;
+        right: 0;
+      }
+
+      @media (max-width: 992px) {
+        .timeline::after {
+          left: 31px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+          justify-content: flex-start;
+        }
+
+        .timeline-item:nth-child(even) {
+          justify-content: flex-start;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after,
+        .timeline-item:nth-child(even) .timeline-content::after {
+          left: -40px;
+        }
+
+        .timeline-content {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-header {
+          padding: 80px 0 60px;
+        }
+
+        .page-header h1 {
+          font-size: 2.5rem;
+        }
+
+        .team-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        .vision-quote {
+          font-size: 1.2rem;
+          padding: 0 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+      <p>
+        Mosaic Grove coming to West Park!
+        <a href="#" class="learn-more">Learn more</a>
+      </p>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/mosaic groove.png" alt="Mosaic Grove" />
+            <span>Mosaic Grove</span>
+          </a>
+        </div>
+        <nav class="main-nav">
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="products.html">PRODUCTS</a></li>
+            <li><a href="our-story.html" class="active">OUR STORY</a></li>
+            <li><a href="impact.html">OUR IMPACT</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Our Story</h1>
+        <p>
+          From humble beginnings to empowering communities in Ghana through
+          sustainable agriculture
+        </p>
+      </div>
+    </section>
+
+    <!-- Origin Story Section -->
+    <section class="story-section">
+      <div class="container">
+        <h2>The Journey of Mosaic Grove</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2014</div>
+              <h3>A Vision Takes Root</h3>
+              <p>
+                Dr. Kaadze Wright, who left Ghana at 17 years old, returns to
+                her homeland with a mission to address rural poverty and create
+                sustainable economic opportunities. During her visit, she
+                identifies cashews and tiger nuts as crops with significant
+                potential for both local consumption and export.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2016</div>
+              <h3>Research & Development</h3>
+              <p>
+                After extensive research into sustainable farming practices and
+                market viability, Dr. Wright partners with agricultural experts
+                to study optimal growing conditions for organic cashews and
+                tiger nuts in Ghana's climate. The team begins small pilot
+                projects with local farmers to test cultivation methods.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2018</div>
+              <h3>Breaking Ground</h3>
+              <p>
+                Spurred by projections that Africa's working age population
+                would increase to 1.1 billion by 2035, Mosaic Grove breaks
+                ground on a 100-acre organic cashew farm in Ghana. This marks
+                the beginning of a commitment to create sustainable jobs while
+                producing high-quality, organic products.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2020</div>
+              <h3>Women's Cooperative</h3>
+              <p>
+                Recognizing that women are often responsible for farming in
+                rural Ghana, Mosaic Grove establishes the first women's
+                cooperative farm focused on tiger nut cultivation in the eastern
+                region of Kwahu. This initiative provides training, fair wages,
+                and leadership opportunities for women farmers.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2021</div>
+              <h3>First Harvest</h3>
+              <p>
+                The first harvest of tiger nuts marks a significant milestone,
+                with products including tiger nut flour and milk being
+                developed. The cooperative now employs over 25 women who receive
+                fair wages and benefit from profit-sharing initiatives.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">2022</div>
+              <h3>Cashew Expansion</h3>
+              <p>
+                Twenty acres of the cashew farm are fully cultivated, with the
+                first cashew harvest taking place. The company launches its
+                premium organic cashew products and begins expanding
+                distribution channels while maintaining its commitment to
+                sustainable practices.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-year">Today</div>
+              <h3>Growing Impact</h3>
+              <p>
+                Mosaic Grove continues to grow, now employing over 50 women
+                across both the cashew farm and tiger nut cooperative. The
+                company is exploring new product lines and expanding its reach
+                while staying true to its mission of empowering communities
+                through sustainable agriculture.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+      <div class="container">
+        <h2>Meet Our Team</h2>
+
+        <div class="team-grid">
+          <div class="team-member">
+            <img
+              src="images/founders.jpg"
+              alt="Dr. Kaadze Wright"
+              class="team-photo"
+            />
+            <div class="team-info">
+              <h3 class="team-name">Dr. Kaadze Wright</h3>
+              <p class="team-role">Founder & CEO</p>
+              <p class="team-bio">
+                Born in Ghana and educated in the United States, Dr. Wright
+                holds a Ph.D. in Agricultural Economics and has dedicated her
+                career to developing sustainable farming practices that uplift
+                communities. Her vision and leadership drive Mosaic Grove's
+                mission forward.
+              </p>
+              <div class="team-social">
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img
+              src="images/founders.jpg"
+              alt="Michael Chen"
+              class="team-photo"
+            />
+            <div class="team-info">
+              <h3 class="team-name">Michael Chen</h3>
+              <p class="team-role">Founder</p>
+              <p class="team-bio">
+                With extensive experience in supply chain management and
+                sustainable business practices, Michael oversees Mosaic Grove's
+                operations, ensuring that our commitment to quality and
+                sustainability is maintained at every step of the process.
+              </p>
+              <div class="team-social">
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img
+              src="images/founders.jpg"
+              alt="Abena Mensah"
+              class="team-photo"
+            />
+            <div class="team-info">
+              <h3 class="team-name">Abena Mensah</h3>
+              <p class="team-role">Farm Manager</p>
+              <p class="team-bio">
+                Leading our agricultural operations in Ghana, Abena brings
+                decades of farming expertise and deep knowledge of local growing
+                conditions. She coordinates with local farmers and ensures our
+                organic practices meet the highest standards.
+              </p>
+              <div class="team-social">
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+      <div class="container">
+        <div class="vision-content">
+          <h2>Our Vision</h2>
+
+          <p>
+            At Mosaic Grove, we envision a world where sustainable agriculture
+            becomes a pathway to economic empowerment for communities across
+            Africa. We believe that by harnessing the power of indigenous crops
+            like cashews and tiger nuts, we can create positive ripple effects
+            that extend far beyond farming.
+          </p>
+
+          <blockquote class="vision-quote">
+            We're not just growing crops, we're growing opportunities,
+            communities, and a sustainable future for generations to come.
+          </blockquote>
+
+          <p>
+            Our approach combines traditional knowledge with modern agricultural
+            science to produce superior-quality organic products while nurturing
+            the land and providing fair wages and training for our farmers. As
+            we look to the future, we are committed to expanding our impact,
+            developing new product lines, and continuing to tell the story of
+            the hard-working individuals who make Mosaic Grove possible.
+          </p>
+
+          <a href="impact.html" class="btn btn-primary">See Our Impact</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-logo">
+            <img src="images/logo.svg" alt="Mosaic Grove" />
+            <span>Mosaic Grove</span>
+          </div>
+          <div class="footer-nav">
+            <div class="footer-nav-column">
+              <h4>Shop</h4>
+              <ul>
+                <li><a href="products.html#cashews">Cashews</a></li>
+                <li><a href="products.html#tiger-nuts">Tiger Nuts</a></li>
+                <li><a href="gift-sets.html">Gift Sets</a></li>
+                <li><a href="products.html#wholesale">Wholesale</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-column">
+              <h4>About</h4>
+              <ul>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="impact.html">Our Impact</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Press</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-column">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Returns</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-social">
+            <h4>Connect With Us</h4>
+            <div class="social-icons">
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Pinterest"
+                ><i class="fab fa-pinterest-p"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="copyright">
+            <p>&copy; 2023 Mosaic Grove. All Rights Reserved.</p>
+          </div>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Impact | Mosaic Grove</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Page-specific styles */
+        .page-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/community.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0 80px;
+            margin-bottom: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .page-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .impact-section {
+            padding: 80px 0;
+        }
+        
+        .impact-section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .impact-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .impact-icon {
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 2.5rem;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .impact-content {
+            padding: 30px;
+        }
+        
+        .impact-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .impact-text {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .metrics-section {
+            background-color: var(--primary-light);
+            padding: 80px 0;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        
+        .metrics-section h2 {
+            margin-bottom: 50px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .metric {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .metric-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .metric-label {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .testimonials-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .testimonials-section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-light);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 0.8;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .author-role {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+        
+        .sustainability-section {
+            padding: 80px 0;
+        }
+        
+        .sustainability-section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .sustainability-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .sustainability-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .sustainability-goals {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .goal-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .goal-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        .goal-text h4 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+        
+        .goal-text p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .impact-section,
+            .metrics-section,
+            .testimonials-section,
+            .sustainability-section,
+            .cta-section {
+                padding: 60px 0;
+            }
+            
+            .metric-number {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <p>Mosaic Grove coming to West Park! <a href="#" class="learn-more">Learn more</a></p>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/mosaic groove.png" alt="Mosaic Grove">
+                    <span>Mosaic Grove</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="products.html">PRODUCTS</a></li>
+                    <li><a href="our-story.html">OUR STORY</a></li>
+                    <li><a href="impact.html" class="active">OUR IMPACT</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Impact</h1>
+            <p>Transforming communities and empowering lives through sustainable agriculture and economic development</p>
+        </div>
+    </section>
+
+    <!-- Impact Areas Section -->
+    <section class="impact-section">
+        <div class="container">
+            <h2>How We're Making a Difference</h2>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3 class="impact-title">Women's Economic Empowerment</h3>
+                        <p class="impact-text">By employing predominantly women farmers, we provide stable incomes, leadership opportunities, and skills training that lead to financial independence. Our cooperative structure ensures that women have a voice in decision-making processes and can build better futures for themselves and their families.</p>
+                    </div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3 class="impact-title">Sustainable Farming Practices</h3>
+                        <p class="impact-text">Our organic farming methods prioritize soil health, biodiversity, and water conservation. We avoid chemical pesticides and fertilizers, opting instead for natural alternatives that protect both the environment and the health of our farmers. These practices ensure the land remains productive for generations to come.</p>
+                    </div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3 class="impact-title">Education & Skills Development</h3>
+                        <p class="impact-text">We invest in training programs that teach modern agricultural techniques while honoring traditional farming knowledge. These skills are transferable beyond our farms, creating a ripple effect of knowledge throughout communities and improving overall agricultural practices in the region.</p>
+                    </div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3 class="impact-title">Community Development</h3>
+                        <p class="impact-text">A portion of our profits is reinvested into community projects including infrastructure improvements, healthcare initiatives, and educational opportunities. By addressing these fundamental needs, we help create thriving communities that can sustain positive growth.</p>
+                    </div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3 class="impact-title">Biodiversity Preservation</h3>
+                        <p class="impact-text">Our farms serve as examples of how agricultural production can coexist with native plant species and wildlife. We maintain buffer zones around waterways, create pollinator habitats, and use companion planting to create balanced ecosystems that benefit both our crops and the surrounding environment.</p>
+                    </div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3 class="impact-title">Economic Development</h3>
+                        <p class="impact-text">By processing our crops locally before export, we create additional jobs beyond farming and keep more value within Ghana. This approach strengthens the local economy, reduces dependency on imports, and helps build a more resilient economic foundation for rural communities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics Section -->
+    <section class="metrics-section">
+        <div class="container">
+            <h2>Our Impact By The Numbers</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric">
+                    <div class="metric-number" data-count="50">50</div>
+                    <div class="metric-label">Women Employed Full-Time</div>
+                </div>
+                
+                <div class="metric">
+                    <div class="metric-number" data-count="100">100</div>
+                    <div class="metric-label">Acres of Organic Farmland</div>
+                </div>
+                
+                <div class="metric">
+                    <div class="metric-number" data-count="25">25</div>
+                    <div class="metric-label">Seasonal Jobs Created</div>
+                </div>
+                
+                <div class="metric">
+                    <div class="metric-number" data-count="15">15</div>
+                    <div class="metric-label">Community Projects Funded</div>
+                </div>
+                
+                <div class="metric">
+                    <div class="metric-number" data-count="200">200</div>
+                    <div class="metric-label">Children with Improved Education Access</div>
+                </div>
+                
+                <div class="metric">
+                    <div class="metric-number" data-count="5">5</div>
+                    <div class="metric-label">Processing Facilities Built</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>Voices from Our Community</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Working with Mosaic Grove has changed my life. Before joining the cooperative, I struggled to provide for my three children. Now, I have a stable income, I've learned valuable farming skills, and I'm even serving as a team leader. The opportunity to be part of decision-making has given me confidence I never had before.</p>
+                    <div class="testimonial-author">
+                        <img src="images/founders.jpg" alt="Abena Owusu" class="author-photo">
+                        <div class="author-info">
+                            <h4>Abena Owusu</h4>
+                            <p class="author-role">Farmer Cooperative Member</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The training I received from Mosaic Grove taught me how to farm organically and sustainably. Now, not only am I producing healthier crops on the cooperative farm, but I'm applying these methods to my own small plot at home. I'm proud to be growing food that's good for both people and the planet.</p>
+                    <div class="testimonial-author">
+                        <img src="images/founders.jpg" alt="Kwame Mensah" class="author-photo">
+                        <div class="author-info">
+                            <h4>Kwame Mensah</h4>
+                            <p class="author-role">Farm Manager</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">As a teacher in the local school, I've seen firsthand how Mosaic Grove's investment in our community has improved education. The new classroom block they helped fund means children no longer have to study outside during the rainy season. More children are staying in school, and our academic performance is improving.</p>
+                    <div class="testimonial-author">
+                        <img src="images/founders.jpg" alt="Grace Adjei" class="author-photo">
+                        <div class="author-info">
+                            <h4>Grace Adjei</h4>
+                            <p class="author-role">Local School Teacher</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Goals Section -->
+    <section class="sustainability-section">
+        <div class="container">
+            <h2>Our Sustainability Commitments</h2>
+            
+            <div class="sustainability-content">
+                <div class="sustainability-text">
+                    <p>At Mosaic Grove, sustainability isn't just a buzzword—it's the foundation of everything we do. We believe that agricultural practices should nurture both people and the planet, ensuring that resources are preserved for future generations.</p>
+                    <p>Our commitment to sustainability extends beyond environmental concerns to encompass social and economic factors as well. This holistic approach allows us to create positive impact across multiple dimensions while building resilience against climate change and market fluctuations.</p>
+                    <p>By 2025, we aim to be carbon-neutral in our operations through a combination of renewable energy adoption, carbon sequestration in our soils, and offsetting unavoidable emissions. We're also working to eliminate all single-use plastics from our packaging and supply chain.</p>
+                </div>
+                
+                <div class="sustainability-goals">
+                    <div class="goal-item">
+                        <div class="goal-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="goal-text">
+                            <h4>Water Conservation</h4>
+                            <p>We utilize efficient irrigation systems and rainwater harvesting to reduce water usage by 30% compared to conventional farms in the region.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="goal-item">
+                        <div class="goal-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <div class="goal-text">
+                            <h4>Zero Waste Operations</h4>
+                            <p>We compost all organic waste, reuse processing byproducts, and are transitioning to fully biodegradable or recyclable packaging.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="goal-item">
+                        <div class="goal-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="goal-text">
+                            <h4>Renewable Energy</h4>
+                            <p>Our processing facilities are powered by solar energy, and we're implementing solar irrigation pumps across all our farms.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="goal-item">
+                        <div class="goal-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="goal-text">
+                            <h4>Fair Trade Practices</h4>
+                            <p>We guarantee fair prices to all our farmers and ensure transparent profit-sharing within our cooperative structure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Join Us in Creating Positive Change</h2>
+                <p>Every purchase of Mosaic Grove products directly contributes to our mission of empowering women farmers in Ghana and creating sustainable livelihoods through organic agriculture.</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="btn btn-primary">Shop Our Products</a>
+                    <a href="contact.html" class="btn btn-secondary">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="images/logo.svg" alt="Mosaic Grove">
+                    <span>Mosaic Grove</span>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-nav-column">
+                        <h4>Shop</h4>
+                        <ul>
+                            <li><a href="products.html#cashews">Cashews</a></li>
+                            <li><a href="products.html#tiger-nuts">Tiger Nuts</a></li>
+                            <li><a href="gift-sets.html">Gift Sets</a></li>
+                            <li><a href="products.html#wholesale">Wholesale</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <h4>About</h4>
+                        <ul>
+                            <li><a href="our-story.html">Our Story</a></li>
+                            <li><a href="impact.html">Our Impact</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Press</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Returns</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 Mosaic Grove. All Rights Reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

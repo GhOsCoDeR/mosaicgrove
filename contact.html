@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Mosaic Grove</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      /* Page-specific styles */
+      .page-header {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("images/contact-header.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 120px 0 80px;
+        margin-bottom: 60px;
+      }
+
+      .page-header h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .page-header p {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .contact-section {
+        padding: 80px 0;
+        background-color: #f9f9f9;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        gap: 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .contact-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .contact-icon {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        padding-top: 5px;
+      }
+
+      .contact-details h3 {
+        color: var(--secondary-color);
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      .contact-details p,
+      .contact-details a {
+        color: var(--text-light);
+        line-height: 1.6;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .contact-details a:hover {
+        color: var(--primary-color);
+      }
+
+      .contact-form {
+        background-color: white;
+        border-radius: 8px;
+        padding: 40px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-group label {
+        display: block;
+        color: var(--secondary-color);
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        color: var(--text-dark);
+        transition: border-color 0.3s;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color);
+        outline: none;
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 14px 30px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .submit-btn:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .map-section {
+        padding: 80px 0;
+      }
+
+      .map-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .map-section h2 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .map-frame {
+        width: 100%;
+        height: 450px;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .faq-section {
+        padding: 80px 0;
+        background-color: var(--primary-light);
+      }
+
+      .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .faq-section h2 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .accordion {
+        margin-bottom: 20px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .accordion-header {
+        background-color: white;
+        padding: 20px;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .accordion-header h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--secondary-color);
+      }
+
+      .accordion-icon {
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        transition: transform 0.3s;
+      }
+
+      .active .accordion-icon {
+        transform: rotate(180deg);
+      }
+
+      .accordion-content {
+        background-color: white;
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease;
+      }
+
+      .active + .accordion-content {
+        padding: 0 20px 20px;
+        max-height: 500px;
+      }
+
+      .accordion-content p {
+        color: var(--text-light);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .page-header {
+          padding: 80px 0 60px;
+        }
+
+        .page-header h1 {
+          font-size: 2.5rem;
+        }
+
+        .contact-container,
+        .faq-container {
+          padding: 0 20px;
+        }
+
+        .contact-section,
+        .map-section,
+        .faq-section {
+          padding: 60px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+      <p>
+        Mosaic Grove coming to West Park!
+        <a href="#" class="learn-more">Learn more</a>
+      </p>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/mosaic groove.png" alt="Mosaic Grove" />
+            <span>Mosaic Grove</span>
+          </a>
+        </div>
+        <nav class="main-nav">
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="products.html">PRODUCTS</a></li>
+            <li><a href="our-story.html">OUR STORY</a></li>
+            <li><a href="impact.html">OUR IMPACT</a></li>
+            <li><a href="contact.html" class="active">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Get In Touch</h1>
+        <p>
+          Have questions about our products or want to learn more about our
+          mission? We'd love to hear from you!
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-container">
+          <div class="contact-info">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Visit Us</h3>
+                <p>123 Sustainable Way<br />Accra, Ghana</p>
+                <p>Mon-Fri: 9am - 5pm<br />Sat: 10am - 2pm</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Call Us</h3>
+                <p>Ghana: +233 20 123 4567</p>
+                <p>International: +1 555 123 4567</p>
+                <p>WhatsApp: +233 20 123 4567</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Email Us</h3>
+                <p>
+                  <a href="mailto:info@mosaicgrove.com">info@mosaicgrove.com</a>
+                </p>
+                <p>
+                  <a href="mailto:orders@mosaicgrove.com"
+                    >orders@mosaicgrove.com</a
+                  >
+                </p>
+                <p>
+                  <a href="mailto:wholesale@mosaicgrove.com"
+                    >wholesale@mosaicgrove.com</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-share-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Connect With Us</h3>
+                <p>
+                  <a href="#" style="margin-right: 15px"
+                    ><i class="fab fa-facebook-f"></i> Facebook</a
+                  >
+                  <a href="#" style="margin-right: 15px"
+                    ><i class="fab fa-instagram"></i> Instagram</a
+                  >
+                </p>
+                <p>
+                  <a href="#" style="margin-right: 15px"
+                    ><i class="fab fa-twitter"></i> Twitter</a
+                  >
+                  <a href="#"><i class="fab fa-pinterest-p"></i> Pinterest</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" class="form-control" id="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject" required />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea class="form-control" id="message" required></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="container">
+        <div class="map-container">
+          <h2>Find Us</h2>
+          <iframe
+            class="map-frame"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254502.5930067225!2d-0.2913286873343775!3d5.5912344518542855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1650123456789!5m2!1sen!2sus"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-container">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h3>How can I place a wholesale order?</h3>
+              <span class="accordion-icon"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                For wholesale inquiries, please email us at
+                wholesale@mosaicgrove.com with details about your business and
+                your order requirements. Our wholesale team will get back to you
+                within 2 business days with pricing and minimum order
+                information. We offer special pricing for bulk orders and can
+                customize packaging for retail partners.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h3>Do you ship internationally?</h3>
+              <span class="accordion-icon"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                Yes, we ship to most countries worldwide. International shipping
+                rates vary depending on the destination and order weight. During
+                checkout, you'll see the shipping options and costs available
+                for your location. Please note that any import duties or taxes
+                are the responsibility of the recipient.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h3>Are your products certified organic?</h3>
+              <span class="accordion-icon"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                Yes, all our products are certified organic by both Ghanaian and
+                international certification bodies. We maintain strict organic
+                farming practices, avoiding chemical pesticides and fertilizers.
+                Our organic certification ensures that our products meet the
+                highest standards for organic food production and processing.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h3>How fresh are your products?</h3>
+              <span class="accordion-icon"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                We process our nuts and superfoods in small batches to ensure
+                optimal freshness. Each package is marked with a harvest date
+                and best-by date. We recommend consuming our products within 6
+                months of purchase for the best flavor and nutritional benefits.
+                To maintain freshness, store in a cool, dry place away from
+                direct sunlight.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header">
+              <h3>Can I visit your farms in Ghana?</h3>
+              <span class="accordion-icon"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                We offer guided tours of our farms and processing facilities for
+                visitors interested in learning more about sustainable
+                agriculture and our operations. Tours are available by
+                appointment only and can be arranged by emailing
+                tours@mosaicgrove.com at least two weeks in advance. We welcome
+                visitors who want to see firsthand how our commitment to quality
+                and sustainability transforms communities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-logo">
+            <img src="images/logo.svg" alt="Mosaic Grove" />
+            <span>Mosaic Grove</span>
+          </div>
+          <div class="footer-nav">
+            <div class="footer-nav-column">
+              <h4>Shop</h4>
+              <ul>
+                <li><a href="products.html#cashews">Cashews</a></li>
+                <li><a href="products.html#tiger-nuts">Tiger Nuts</a></li>
+                <li><a href="gift-sets.html">Gift Sets</a></li>
+                <li><a href="products.html#wholesale">Wholesale</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-column">
+              <h4>About</h4>
+              <ul>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="impact.html">Our Impact</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Press</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-column">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Returns</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-social">
+            <h4>Connect With Us</h4>
+            <div class="social-icons">
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Pinterest"
+                ><i class="fab fa-pinterest-p"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="copyright">
+            <p>&copy; 2023 Mosaic Grove. All Rights Reserved.</p>
+          </div>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+      // Accordion functionality
+      document.querySelectorAll(".accordion-header").forEach((button) => {
+        button.addEventListener("click", () => {
+          button.classList.toggle("active");
+        });
+      });
+
+      // Form submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Form submission logic would go here
+          alert("Thank you for your message! We will get back to you soon.");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

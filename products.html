@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products | Mosaic Grove</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      /* Products page specific styles */
+      .page-header {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("images/products-header.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 120px 0 80px;
+        margin-bottom: 60px;
+      }
+
+      .page-header h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .page-header p {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .products-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .category-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .category-title h2 {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+      }
+
+      .category-title p {
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        margin-bottom: 80px;
+      }
+
+      .product-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-image {
+        position: relative;
+        height: 230px;
+        overflow: hidden;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-image img {
+        transform: scale(1.05);
+      }
+
+      .product-badges {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .badge {
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+      }
+
+      .badge.organic {
+        background-color: var(--primary-color);
+      }
+
+      .badge.bestseller {
+        background-color: var(--secondary-color);
+      }
+
+      .badge.new {
+        background-color: #e74c3c;
+      }
+
+      .badge.limited {
+        background-color: #f39c12;
+      }
+
+      .product-info {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product-info h3 {
+        font-size: 1.25rem;
+        color: var(--secondary-color);
+        margin-bottom: 10px;
+      }
+
+      .product-description {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        flex-grow: 1;
+        margin-bottom: 20px;
+      }
+
+      .product-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .product-price {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 20px;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+      }
+
+      /* Featured product section */
+      .featured-product {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        background-color: var(--light-gray);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 80px;
+      }
+
+      .featured-image {
+        height: 100%;
+        min-height: 400px;
+      }
+
+      .featured-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .featured-content {
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .featured-badge {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .featured-content h2 {
+        font-size: 2.2rem;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+      }
+
+      .featured-description {
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      .featured-price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 30px;
+      }
+
+      .btn-large {
+        font-size: 1.1rem;
+        padding: 12px 30px;
+        display: inline-block;
+      }
+
+      /* Gift sets section */
+      .gift-sets-section {
+        margin-bottom: 80px;
+      }
+
+      .gift-sets-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .gift-set-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .gift-set-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .gift-image {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .gift-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gift-set-card:hover .gift-image img {
+        transform: scale(1.05);
+      }
+
+      .gift-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+
+      .gift-content {
+        padding: 30px;
+      }
+
+      .gift-content h3 {
+        font-size: 1.4rem;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+      }
+
+      .gift-content p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .gift-price {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+        margin-bottom: 20px;
+      }
+
+      /* Benefits section */
+      .benefits-section {
+        background-color: var(--primary-light);
+        padding: 80px 0;
+        margin-bottom: 80px;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .benefit-card {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .benefit-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      .benefit-card h3 {
+        font-size: 1.3rem;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+      }
+
+      .benefit-card p {
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 992px) {
+        .featured-product {
+          grid-template-columns: 1fr;
+        }
+
+        .featured-image {
+          min-height: 300px;
+        }
+
+        .featured-content {
+          padding: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-header {
+          padding: 80px 0 60px;
+        }
+
+        .page-header h1 {
+          font-size: 2.5rem;
+        }
+
+        .category-title h2 {
+          font-size: 2rem;
+        }
+
+        .featured-content h2 {
+          font-size: 1.8rem;
+        }
+
+        .featured-price {
+          font-size: 1.6rem;
+        }
+
+        .gift-sets-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+      <p>
+        Mosaic Grove coming to West Park!
+        <a href="#" class="learn-more">Learn more</a>
+      </p>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/mosaic groove.png" alt="Mosaic Grove" />
+            <span>Mosaic Grove</span>
+          </a>
+        </div>
+        <nav class="main-nav">
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="products.html" class="active">PRODUCTS</a></li>
+            <li><a href="our-story.html">OUR STORY</a></li>
+            <li><a href="impact.html">OUR IMPACT</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Our Products</h1>
+        <p>
+          Ethically sourced, organic superfoods from our women's cooperative in
+          Ghana
+        </p>
+      </div>
+    </section>
+
+    <main>
+      <!-- Featured Product -->
+      <section class="products-container">
+        <div class="featured-product">
+          <div class="featured-image">
+            <img src="images/t2.jpg" alt="Organic Cashews" />
+          </div>
+          <div class="featured-content">
+            <span class="featured-badge">FEATURED PRODUCT</span>
+            <h2>Organic Tigernut Flour</h2>
+            <p class="featured-description">
+              Organic Tigernuts Our premium organic tigernuts are sourced
+              directly from our women's cooperative in Ghana. Hand-harvested and
+              processed with care, these nutrient-rich tubers offer a naturally
+              sweet, nutty flavor and delightful crunch, making them perfect for
+              snacking, baking, or blending into creamy plant-based milks.
+            </p>
+            <div class="featured-price">$12.99</div>
+            <a href="#" class="btn-primary btn-large">Add to Cart</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section class="products-container">
+        <div class="category-title">
+          <h2>Our Superfoods</h2>
+          <p>
+            Discover our range of nutrient-dense superfoods, grown with
+            sustainable practices and harvested at peak freshness
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-card" id="cashews">
+            <div class="product-image">
+              <img src="images/c1.jpg" alt="Organic Cashews" />
+              <div class="product-badges">
+                <span class="badge organic">Organic</span>
+                <span class="badge bestseller">Bestseller</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3>Organic Cashews</h3>
+              <p class="product-description">
+                Perfectly roasted, lightly salted organic cashews, ethically
+                sourced from our women's cooperative in Ghana.
+              </p>
+              <div class="product-meta">
+                <span class="product-price">$12.99</span>
+                <a href="#" class="btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" id="tiger-nuts">
+            <div class="product-image">
+              <img src="images/wambugu.jpg" alt="Tiger Nuts" />
+              <div class="product-badges">
+                <span class="badge organic">Organic</span>
+                <span class="badge new">New</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3>Wambugu Apple</h3>
+              <p class="product-description">
+                Wambugu apples can be used to make fresh juices, apple pies,
+                jams, and healthy snacks. They are rich in fiber, vitamins, and
+                antioxidants, supporting digestion and boosting immunity.
+              </p>
+              <div class="product-meta">
+                <span class="product-price">$10.99</span>
+                <a href="#" class="btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" id="superfoods">
+            <div class="product-image">
+              <img src="images/dragonfruit.jpg" alt="Superfood Mix" />
+              <div class="product-badges">
+                <span class="badge organic">Organic</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3>Dragon Fruit</h3>
+              <p class="product-description">
+                A nourishing blend of our cashews, tiger nuts, and other
+                nutrient-dense ingredients for a perfect energy boost.
+              </p>
+              <div class="product-meta">
+                <span class="product-price">$14.99</span>
+                <a href="#" class="btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gift Sets Section -->
+      <section class="gift-sets-section" id="gift-sets">
+        <div class="products-container">
+          <div class="category-title">
+            <h2>Gift Sets & Bundles</h2>
+            <p>Share the goodness of Mosaic Grove with friends and family</p>
+          </div>
+
+          <div class="gift-sets-grid">
+            <div class="gift-set-card">
+              <div class="gift-image">
+                <img src="images/cashews.jpg" alt="Starter Gift Set" />
+                <div class="gift-badge">Most Popular</div>
+              </div>
+              <div class="gift-content">
+                <h3>Starter Gift Set</h3>
+                <p>
+                  A perfect introduction to our organic cashews with three
+                  delicious flavors.
+                </p>
+                <div class="gift-price">$32.99</div>
+                <a href="gift-sets.html" class="btn-primary">Shop Now</a>
+              </div>
+            </div>
+
+            <div class="gift-set-card">
+              <div class="gift-image">
+                <img src="images/gift-sets.jpg" alt="Deluxe Gift Box" />
+              </div>
+              <div class="gift-content">
+                <h3>Deluxe Gift Box</h3>
+                <p>
+                  Our premium collection featuring all varieties of our organic
+                  cashews.
+                </p>
+                <div class="gift-price">$49.99</div>
+                <a href="gift-sets.html" class="btn-primary">Shop Now</a>
+              </div>
+            </div>
+
+            <div class="gift-set-card">
+              <div class="gift-image">
+                <img src="images/superfoods.jpg" alt="Subscription Box" />
+                <div class="gift-badge">Best Value</div>
+              </div>
+              <div class="gift-content">
+                <h3>Monthly Subscription</h3>
+                <p>
+                  A curated selection of our products delivered to your door
+                  each month.
+                </p>
+                <div class="gift-price">$25.99/month</div>
+                <a href="gift-sets.html" class="btn-primary">Subscribe</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="benefits-section">
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3>100% Organic</h3>
+            <p>
+              All our products are certified organic, grown without chemical
+              pesticides or fertilizers.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Nutrient-Rich</h3>
+            <p>
+              Packed with essential vitamins, minerals, and antioxidants for
+              optimal health.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-female"></i>
+            </div>
+            <h3>Women-Powered</h3>
+            <p>
+              Supporting economic independence for women farmers in rural Ghana.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-globe-africa"></i>
+            </div>
+            <h3>Sustainable</h3>
+            <p>
+              Environmentally conscious farming practices that preserve
+              biodiversity.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wholesale Section -->
+      <section class="products-container" id="wholesale">
+        <div class="category-title">
+          <h2>Wholesale Opportunities</h2>
+          <p>
+            Join our growing network of retail partners and bring Mosaic Grove
+            products to your customers
+          </p>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 80px">
+          <p
+            style="
+              margin-bottom: 30px;
+              color: var(--text-light);
+              max-width: 800px;
+              margin-left: auto;
+              margin-right: auto;
+              line-height: 1.8;
+            "
+          >
+            We offer competitive wholesale pricing, beautiful branded displays,
+            and dedicated account support for retail partners. Our products are
+            perfect for health food stores, specialty grocers, gift shops, and
+            corporate gifting programs.
+          </p>
+          <a href="contact.html" class="btn-primary btn-large"
+            >Contact for Wholesale</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-logo">
+            <img src="images/logo.svg" alt="Mosaic Grove" />
+            <span>Mosaic Grove</span>
+          </div>
+          <div class="footer-nav">
+            <div class="footer-nav-column">
+              <h4>Shop</h4>
+              <ul>
+                <li><a href="products.html#cashews">Cashews</a></li>
+                <li><a href="products.html#tiger-nuts">Tiger Nuts</a></li>
+                <li><a href="gift-sets.html">Gift Sets</a></li>
+                <li><a href="products.html#wholesale">Wholesale</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-column">
+              <h4>About</h4>
+              <ul>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="impact.html">Our Impact</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Press</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav-column">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Returns</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-social">
+            <h4>Connect With Us</h4>
+            <div class="social-icons">
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Pinterest"
+                ><i class="fab fa-pinterest-p"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="copyright">
+            <p>&copy; 2023 Mosaic Grove. All Rights Reserved.</p>
+          </div>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

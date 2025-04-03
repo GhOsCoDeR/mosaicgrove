@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosaic Grove Founders</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+        }
+        .founders-container {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #dcedc8, #aed581);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .founders-group {
+            width: 90%;
+            max-width: 600px;
+            height: 400px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .founders-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #33691e;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+        .founders-portraits {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+        }
+        .founder {
+            width: 150px;
+            height: 200px;
+            background: #fff;
+            border-radius: 10px;
+            margin: 0 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .founder:hover {
+            transform: translateY(-10px);
+        }
+        .founder-avatar {
+            width: 100%;
+            height: 150px;
+            background-color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+        .avatar-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .avatar-head {
+            width: 60px;
+            height: 60px;
+            background: #bdbdbd;
+            border-radius: 50%;
+            position: relative;
+            top: 10px;
+        }
+        .avatar-body {
+            width: 100px;
+            height: 80px;
+            background: #bdbdbd;
+            border-radius: 50px 50px 0 0;
+            position: absolute;
+            bottom: 0;
+        }
+        .founder-info {
+            padding: 10px;
+            text-align: center;
+        }
+        .founder-name {
+            font-weight: bold;
+            color: #33691e;
+            margin-bottom: 2px;
+            font-size: 16px;
+        }
+        .founder-role {
+            color: #689f38;
+            font-size: 12px;
+            font-style: italic;
+        }
+        .pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.2) 10%, transparent 10%);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .founder-1 .avatar-head, .founder-1 .avatar-body {
+            background: linear-gradient(135deg, #8d6e63, #5d4037);
+        }
+        .founder-2 .avatar-head, .founder-2 .avatar-body {
+            background: linear-gradient(135deg, #90a4ae, #546e7a);
+        }
+    </style>
+</head>
+<body>
+    <div class="founders-container">
+        <div class="pattern"></div>
+        <div class="founders-group">
+            <div class="founders-title">Meet Our Founders</div>
+            <div class="founders-portraits">
+                <div class="founder founder-1">
+                    <div class="founder-avatar">
+                        <div class="avatar-placeholder">
+                            <div class="avatar-head"></div>
+                            <div class="avatar-body"></div>
+                        </div>
+                    </div>
+                    <div class="founder-info">
+                        <div class="founder-name">Emma Johnson</div>
+                        <div class="founder-role">Co-Founder & CEO</div>
+                    </div>
+                </div>
+                <div class="founder founder-2">
+                    <div class="founder-avatar">
+                        <div class="avatar-placeholder">
+                            <div class="avatar-head"></div>
+                            <div class="avatar-body"></div>
+                        </div>
+                    </div>
+                    <div class="founder-info">
+                        <div class="founder-name">Michael Chen</div>
+                        <div class="founder-role">Co-Founder & COO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

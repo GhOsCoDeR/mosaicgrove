@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiger Nuts</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            background-color: #f8f8f8;
+        }
+        .tiger-nuts-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .tiger-nuts {
+            width: 80%;
+            max-width: 500px;
+            height: 80%;
+            background: #f0d4a0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .tiger-nut {
+            position: absolute;
+            background: #d4b276;
+            border-radius: 50%;
+            box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.1), 
+                        inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+        }
+        .tiger-nut-1 {
+            width: 40px;
+            height: 40px;
+            top: 30%;
+            left: 30%;
+        }
+        .tiger-nut-2 {
+            width: 35px;
+            height: 35px;
+            top: 40%;
+            right: 30%;
+        }
+        .tiger-nut-3 {
+            width: 45px;
+            height: 45px;
+            bottom: 25%;
+            left: 40%;
+        }
+        .tiger-nut-4 {
+            width: 30px;
+            height: 30px;
+            top: 25%;
+            right: 45%;
+        }
+        .tiger-nut-5 {
+            width: 38px;
+            height: 38px;
+            bottom: 35%;
+            right: 35%;
+        }
+        .tiger-nut-6 {
+            width: 25px;
+            height: 25px;
+            top: 50%;
+            left: 45%;
+        }
+        .tiger-nut-7 {
+            width: 42px;
+            height: 42px;
+            bottom: 20%;
+            right: 25%;
+        }
+        .tiger-nut-8 {
+            width: 32px;
+            height: 32px;
+            top: 20%;
+            left: 20%;
+        }
+        .tiger-nut-stripe {
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: #c0a060;
+            border-radius: 2px;
+            top: 45%;
+            left: 20%;
+            transform-origin: center;
+            opacity: 0.7;
+        }
+        .tiger-nut-1 .tiger-nut-stripe {
+            transform: rotate(45deg);
+        }
+        .tiger-nut-2 .tiger-nut-stripe {
+            transform: rotate(-30deg);
+        }
+        .tiger-nut-3 .tiger-nut-stripe {
+            transform: rotate(15deg);
+        }
+        .tiger-nut-4 .tiger-nut-stripe {
+            transform: rotate(-60deg);
+        }
+        .tiger-nut-5 .tiger-nut-stripe {
+            transform: rotate(75deg);
+        }
+        .tiger-nut-6 .tiger-nut-stripe {
+            transform: rotate(0deg);
+        }
+        .tiger-nut-7 .tiger-nut-stripe {
+            transform: rotate(-45deg);
+        }
+        .tiger-nut-8 .tiger-nut-stripe {
+            transform: rotate(30deg);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(212, 178, 118, 0.3), rgba(240, 212, 160, 0.3));
+            z-index: 2;
+        }
+        .label {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #4e342e;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="tiger-nuts-container">
+        <div class="tiger-nuts">
+            <div class="tiger-nut tiger-nut-1">
+                <div class="tiger-nut-stripe"></div>
+            </div>
+            <div class="tiger-nut tiger-nut-2">
+                <div class="tiger-nut-stripe"></div>
+            </div>
+            <div class="tiger-nut tiger-nut-3">
+                <div class="tiger-nut-stripe"></div>
+            </div>
+            <div class="tiger-nut tiger-nut-4">
+                <div class="tiger-nut-stripe"></div>
+            </div>
+            <div class="tiger-nut tiger-nut-5">
+                <div class="tiger-nut-stripe"></div>
+            </div>
+            <div class="tiger-nut tiger-nut-6">
+                <div class="tiger-nut-stripe"></div>
+            </div>
+            <div class="tiger-nut tiger-nut-7">
+                <div class="tiger-nut-stripe"></div>
+            </div>
+            <div class="tiger-nut tiger-nut-8">
+                <div class="tiger-nut-stripe"></div>
+            </div>
+            <div class="overlay"></div>
+            <div class="label">Tiger Nuts</div>
+        </div>
+    </div>
+</body>
+</html> 

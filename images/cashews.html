@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashews</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            background-color: #f8f8f8;
+        }
+        .cashews-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .cashews {
+            width: 80%;
+            max-width: 500px;
+            height: 80%;
+            background: #e0d1b1;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .cashew {
+            position: absolute;
+            background: #e0be9c;
+            border-radius: 50%;
+            box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.1), 
+                        inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+        }
+        .cashew-1 {
+            width: 60px;
+            height: 90px;
+            border-radius: 30px 30px 60px 60px;
+            transform: rotate(45deg);
+            top: 30%;
+            left: 30%;
+        }
+        .cashew-2 {
+            width: 70px;
+            height: 100px;
+            border-radius: 35px 35px 70px 70px;
+            transform: rotate(-30deg);
+            top: 40%;
+            right: 30%;
+        }
+        .cashew-3 {
+            width: 50px;
+            height: 80px;
+            border-radius: 25px 25px 50px 50px;
+            transform: rotate(15deg);
+            bottom: 20%;
+            left: 40%;
+        }
+        .cashew-4 {
+            width: 45px;
+            height: 70px;
+            border-radius: 22px 22px 45px 45px;
+            transform: rotate(-60deg);
+            top: 20%;
+            right: 40%;
+        }
+        .cashew-5 {
+            width: 55px;
+            height: 85px;
+            border-radius: 28px 28px 55px 55px;
+            transform: rotate(75deg);
+            bottom: 25%;
+            right: 25%;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(224, 190, 156, 0.3), rgba(200, 160, 120, 0.3));
+            z-index: 2;
+        }
+        .label {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #4e342e;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="cashews-container">
+        <div class="cashews">
+            <div class="cashew cashew-1"></div>
+            <div class="cashew cashew-2"></div>
+            <div class="cashew cashew-3"></div>
+            <div class="cashew cashew-4"></div>
+            <div class="cashew cashew-5"></div>
+            <div class="overlay"></div>
+            <div class="label">Organic Cashews</div>
+        </div>
+    </div>
+</body>
+</html> 

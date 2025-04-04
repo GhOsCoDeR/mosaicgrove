@@ -1,9 +1,18 @@
 [build]
   publish = "./"
-  command = "npm run generate-images"
+  command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "16"
+  NPM_FLAGS = "--no-audit --production=false"
+
+# Explicitly set Puppeteer cache to be in node_modules
+[build.environment]
+  PUPPETEER_CACHE_DIR = "./node_modules/puppeteer/.cache"
+
+# Explicitly set a prebuild step that ensures puppeteer-related packages are properly installed
+[build.environment.NETLIFY_USE_YARN]
+  command = "false"
 
 [[redirects]]
   from = "/*"

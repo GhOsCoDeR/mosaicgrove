@@ -14,7 +14,17 @@ async function convertHtmlToImage() {
     fs.mkdirSync(outputDir);
   }
   
-  const browser = await puppeteer.launch();
+  // Modified launch options for CI environment
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--disable-gpu'
+    ]
+  });
   const page = await browser.newPage();
   
   const htmlFiles = [

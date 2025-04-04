@@ -6,8 +6,8 @@
   "scripts": {
     "generate-images": "node convert-images.js && echo 'Images generated successfully'",
     "start": "npx serve",
-    "prebuild": "npm install puppeteer --no-save",
-    "build": "npm run generate-images"
+    "prebuild": "mkdir -p images && cp -r static-images/* images/ || true",
+    "build": "echo 'Building site with static images'"
   },
   "keywords": [
     "website",

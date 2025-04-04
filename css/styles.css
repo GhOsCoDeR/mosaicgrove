@@ -3,6 +3,9 @@
  * A modern, responsive design for Mosaic Grove website
  */
 
+/* Remove self-import to prevent duplication */
+/* @import url("styles.css") layer(prevent-duplicate); */
+
 /* ===== Base Styles ===== */
 :root {
   --primary-color: #7cb342;

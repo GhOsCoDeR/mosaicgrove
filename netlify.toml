@@ -1,0 +1,17 @@
+[build]
+  publish = "./"
+  command = "npm run generate-images"
+
+[build.environment]
+  NODE_VERSION = "16"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+  
+[dev]
+  command = "npm start"
+  port = 3000
+  publish = "./" 

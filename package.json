@@ -6,8 +6,7 @@
   "scripts": {
     "generate-images": "node convert-images.js && echo 'Images generated successfully'",
     "start": "npx serve",
-    "prebuild": "mkdir -p images && cp -r static-images/* images/ || true",
-    "build": "echo 'Building site with static images'"
+    "build": "echo 'Building site with direct image paths'"
   },
   "keywords": [
     "website",
